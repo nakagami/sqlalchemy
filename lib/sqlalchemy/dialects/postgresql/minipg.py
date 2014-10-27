@@ -62,7 +62,7 @@ class PGDialect_minipg(PGDialect):
     supports_sane_multi_rowcount = True
     supports_unicode_statements = True
     supports_unicode_binds = True
-    description_encoding = 'use_encoding'
+    description_encoding = None
     statement_compiler = PGCompiler_minipg
 
     colspecs = util.update_copy(
