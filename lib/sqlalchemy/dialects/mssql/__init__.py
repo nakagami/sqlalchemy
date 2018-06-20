@@ -5,7 +5,7 @@
 # This module is part of SQLAlchemy and is released under
 # the MIT License: http://www.opensource.org/licenses/mit-license.php
 
-from . import base, pyodbc, adodbapi, pymssql, zxjdbc, mxodbc  # noqa
+from . import base, pyodbc, adodbapi, pymssql, zxjdbc, mxodbc, minitds  # noqa
 
 from .base import \
     INTEGER, BIGINT, SMALLINT, TINYINT, VARCHAR, NVARCHAR, CHAR, \

@@ -278,7 +278,7 @@ class DefaultRequirements(SuiteRequirements):
             no_support("sqlite",
                        "independent connections disabled "
                        "when :memory: connections are used"),
-            exclude("mssql", "<", (9, 0, 0),
+            no_support("mssql",
                     "SQL Server 2005+ is required for "
                     "independent connections")])
 
