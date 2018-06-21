@@ -224,7 +224,7 @@ class DefaultRequirements(SuiteRequirements):
         """target DBAPI must work fully with binary values"""
 
         # see https://github.com/pymssql/pymssql/issues/504
-        return skip_if(["mssql+pymssql"])
+        return skip_if(["mssql+pymssql", "mssql+minitds"])
 
     @property
     def binary_comparisons(self):
@@ -312,7 +312,7 @@ class DefaultRequirements(SuiteRequirements):
     def autocommit(self):
         """target dialect supports 'AUTOCOMMIT' as an isolation_level"""
         return only_on(
-            ('postgresql', 'mysql', 'mssql+pyodbc', 'mssql+pymssql'),
+            ('postgresql', 'mysql', 'mssql+pyodbc', 'mssql+pymssql', "mssql+minitds"),
             "dialect does not support AUTOCOMMIT isolation mode")
 
     @property
@@ -885,6 +885,9 @@ class DefaultRequirements(SuiteRequirements):
              'only four decimal places '),
             ('mssql+pymssql', None, None,
              'mssql+pymssql has FP inaccuracy even with '
+             'only four decimal places '),
+            ('mssql+minitds', None, None,
+             'mssql+minitds has FP inaccuracy even with '
              'only four decimal places '),
             ('postgresql+pg8000', None, None,
              'postgresql+pg8000 has FP inaccuracy even with '
