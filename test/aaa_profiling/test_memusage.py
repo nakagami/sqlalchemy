@@ -532,6 +532,7 @@ class MemUsageWBackendTest(EnsureZeroed):
                 (next(counter), next(counter)))
         go()
 
+    @testing.crashes('mssql+minitds', 'blocking')
     def test_mapper_reset(self):
         metadata = MetaData(self.engine)
 

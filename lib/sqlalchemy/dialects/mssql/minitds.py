@@ -101,7 +101,6 @@ class MSDialect_minitds(MSDialect):
 
     def set_isolation_level(self, connection, level):
         import sys
-        print(level, file=sys.stderr)
         if level == 'AUTOCOMMIT':
             connection.set_autocommit(True)
         else:
