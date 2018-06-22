@@ -26,7 +26,7 @@ from ... import types as sqltypes, util, processors
 import re
 
 
-class _MSNumeric_pymssql(sqltypes.Numeric):
+class _MSNumeric_minitds(sqltypes.Numeric):
     def result_processor(self, dialect, type_):
         if not self.asdecimal:
             return processors.to_float
@@ -52,7 +52,7 @@ class MSDialect_minitds(MSDialect):
     colspecs = util.update_copy(
         MSDialect.colspecs,
         {
-            sqltypes.Numeric: _MSNumeric_pymssql,
+            sqltypes.Numeric: _MSNumeric_minitds,
             sqltypes.Float: sqltypes.Float,
         }
     )
